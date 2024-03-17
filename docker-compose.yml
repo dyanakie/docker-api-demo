@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  eclipse-temurin:
+    image: eclipse-temurin:latest
+    container_name: spring-boot-app
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: java -jar ./build/libs/demo-0.0.1-SNAPSHOT.jar
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    ports:
+      - "9443:443"
+    volumes:
+      - ./nginx/certs:/etc/nginx/certs
+      - ./nginx/conf/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - eclipse-temurin
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
