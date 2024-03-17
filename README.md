@@ -40,3 +40,13 @@ You can find examples in the email service and I will put them here as well.
   Full example expression query param: 
 - OPERATION:takeSubstring / FROM:input1 / PARAMS 1 START ALL ~ OPERATION:concatenate / . ~ OPERATION:takeSubstring / FROM:input2 / PARAMS 1 START 1 ~ OPERATION:takeSubstring / FROM:input2 / PARAMS 1 START 2 ~ OPERATION:takeWord / FROM:input2 / PARAMS 2 ~ OPERATION:takeWord / FROM:input2 / PARAMS 3
   ~ OPERATION:concatenate / @ ~ OPERATION:concatenate / FROM:input3 ~ OPERATION:concatenate / . ~ OPERATION:concatenate / FROM:input4
+
+
+## Running
+
+SWAGGER - http://localhost:8080/swagger-ui/index.html
+
+SAMPLE GET - https://localhost:8080/api/generate-email?input1=Jean-Louis&input2=Jean-Charles Mignard&input3=external&input4=peoplespheres.fr&input5=fr&expression=OPERATION:takeSubstring / FROM:input1 / PARAMS 1 START ALL ~ OPERATION:concatenate / . ~ OPERATION:takeSubstring / FROM:input2 / PARAMS 1 START 1 ~ OPERATION:takeSubstring / FROM:input2 / PARAMS 1 START 2 ~ OPERATION:takeWord / FROM:input2 / PARAMS 2 ~ OPERATION:takeWord / FROM:input2 / PARAMS 3
+~ OPERATION:concatenate / @ ~ OPERATION:concatenate / FROM:input3 ~ OPERATION:concatenate / . ~ OPERATION:concatenate / FROM:input4
+
+9443 if used with docker compose
